@@ -294,7 +294,7 @@ class GoalNet:
 # Example usage
 if __name__ == "__main__":
     # Create detector instance
-    detector = SoccerGoalDetector(
+    detector = GoalNet(
         scene_threshold=30.0,
         audio_threshold=0.7,
         confidence_threshold=0.25
