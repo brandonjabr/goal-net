@@ -40,33 +40,37 @@ scipy
 Step 1: Install ffmpeg
 
 Ubuntu/Debian:
-bashsudo apt-get update
+```
+sudo apt-get update
 sudo apt-get install ffmpeg
+```
 
 macOS:
-bashbrew install ffmpeg
+```
+brew install ffmpeg
+```
 
 Windows:
 Download from ffmpeg.org and add to PATH
 
 Step 2: Install Required Python Packages
-bash# Clone the repository
+
+Clone the repository
+```
 git clone https://github.com/brandonjabr/goal-net.git
-cd soccer-goal-detector
+cd goal-net
+```
 
 # Install dependencies
+```
 pip install -r requirements.txt
-
-Step 3: Verify Installation
-from soccer_goal_detector import SoccerGoalDetector
-
-detector = SoccerGoalDetector()
-print("Installation successful!")
+```
 
 📖 Usage
 
 Basic Usage
-from soccer_goal_detector import SoccerGoalDetector
+```
+from main import SoccerGoalDetector
 
 # Create detector instance
 detector = SoccerGoalDetector()
@@ -79,8 +83,12 @@ for i, goal in enumerate(goals, 1):
     minutes = int(goal['timestamp'] // 60)
     seconds = int(goal['timestamp'] % 60)
     print(f"Goal {i}: {minutes}m {seconds}s (Confidence: {goal['confidence']:.2%})")
+```
+
 Advanced Usage
-python# Customize detection parameters
+
+Customize detection parameters
+```
 detector = SoccerGoalDetector(
     scene_threshold=30.0,      # Sensitivity for scene changes (lower = more sensitive)
     audio_threshold=0.7,       # Sensitivity for audio peaks (lower = more sensitive)
@@ -101,27 +109,30 @@ for goal in goals:
     print(f"Scene Intensity: {goal['scene_intensity']:.2f}")
     print(f"Audio Intensity: {goal['audio_intensity']:.2f}")
     print("---")
+```
+
 🎬 Output Format
 Each detected goal returns a dictionary with:
-python{
+{
     'timestamp': 245.67,        # Time in seconds
     'frame': 7370,              # Frame number
     'confidence': 0.85,         # Detection confidence (0-1)
     'scene_intensity': 45.2,    # Visual change intensity
     'audio_intensity': 0.92     # Audio peak intensity
 }
+
 ⚙️ Configuration
+
 Detection Parameters
 ParameterDefaultDescriptionscene_threshold30.0Higher values = less sensitive to visual changesaudio_threshold0.7Higher values = less sensitive to audio peaksconfidence_threshold0.6Minimum confidence to report a goal (0.0-1.0)
-Tuning Tips
 
+Tuning Tips
 Too many false positives? Increase confidence_threshold to 0.7-0.8
 Missing goals? Lower scene_threshold to 20.0 and confidence_threshold to 0.4
 Poor audio quality? Rely more on visual: lower scene_threshold to 25.0
 Broadcast with minimal replays? Lower confidence_threshold and adjust window in code
 
 🔧 How It Works
-
 Audio Extraction: Extracts audio track from video using ffmpeg
 Scene Analysis: Processes video frames to detect significant visual changes
 Audio Analysis: Identifies peaks in audio energy indicating crowd reactions
@@ -130,19 +141,9 @@ Confidence Scoring: Combines signals (40% visual, 60% audio) for final score
 Duplicate Removal: Filters multiple detections within 10-second windows
 
 📊 Performance
-
 Processing speed: ~30-60 FPS on CPU, ~100-200 FPS on GPU
 Typical accuracy: 80-90% goal detection rate
 False positive rate: ~5-15% (tunable with thresholds)
-
-🤝 Contributing
-Contributions are welcome! Areas for improvement:
-
-Support for additional video formats
-Machine learning model fine-tuning for soccer-specific features
-Player tracking integration
-Real-time streaming support
-Enhanced replay detection algorithms
 
 📝 License
 This project does not include a license. You may clone and run the code locally but you may NOT
