@@ -115,6 +115,7 @@ for goal in goals:
 ```
 
 🎬 Output Format
+```
 Each detected goal returns a dictionary with:
 {
     'timestamp': 245.67,        # Time in seconds
@@ -123,6 +124,7 @@ Each detected goal returns a dictionary with:
     'scene_intensity': 45.2,    # Visual change intensity
     'audio_intensity': 0.92     # Audio peak intensity
 }
+```
 
 ⚙️ Configuration
 
