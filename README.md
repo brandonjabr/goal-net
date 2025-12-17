@@ -73,10 +73,10 @@ pip install -r requirements.txt
 
 Basic Usage
 ```
-from main import SoccerGoalDetector
+from main import GoalNet
 
 # Create detector instance
-detector = SoccerGoalDetector()
+detector = GoalNet()
 
 # Detect goals in your video
 goals = detector.detect_goals("match.mp4")
@@ -92,7 +92,7 @@ Advanced Usage
 
 Customize detection parameters
 ```
-detector = SoccerGoalDetector(
+detector = GoalNet(
     scene_threshold=30.0,      # Sensitivity for scene changes (lower = more sensitive)
     audio_threshold=0.7,       # Sensitivity for audio peaks (lower = more sensitive)
     confidence_threshold=0.5   # Minimum confidence to report (0.0-1.0)

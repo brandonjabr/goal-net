@@ -1,5 +1,5 @@
 """
-Soccer Goal Detection Library
+GoalNet: Automatic Soccer Goal Detection and Highlight Generation
 
 Copyright Brandon Jabr (2025)
 
@@ -32,7 +32,7 @@ import subprocess
 from pathlib import Path
 
 
-class SoccerGoalDetector:
+class GoalNet:
     """
     Main class for detecting goals in soccer match videos.
     
@@ -301,8 +301,9 @@ if __name__ == "__main__":
     )
     
     # Detect goals in video
+    input_videos_path = "input_videos/"
     video_file = "messi_goals_vs_arsenal.mp4"  # Replace with your video path
-    goals = detector.detect_goals(video_file, output_clips=True)
+    goals = detector.detect_goals(input_videos_path + video_file, output_clips=True)
     
     # Print results
     print("\n=== Goal Detection Results ===")
