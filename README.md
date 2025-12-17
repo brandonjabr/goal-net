@@ -1,13 +1,14 @@
-Copyright Brandon Jabr (2025)
-
-GoalNet: Automatic Soccer Goal Detection and Highlight Generation
+*GoalNet: Automatic Soccer Goal Detection and Highlight Generation* 
 
 A Python library for automatically detecting goals in soccer match videos and generating highlight clips, using computer vision and audio analysis with open-source machine learning libraries.
 
 🎯 Overview
+```
 This library analyzes soccer game videos (MP4 format) and automatically identifies when goals are scored by detecting visual cues (scene changes, replays) and audio signals (crowd reactions, commentary excitement). It combines multiple detection signals to provide accurate timestamps and confidence scores for each goal.
+```
 
 ✨ Key Features
+```
 Multi-Signal Detection: Combines video and audio analysis for accurate goal detection
 Scene Change Detection: Identifies sudden visual transitions typical of goal replays and celebrations
 Audio Peak Analysis: Detects crowd roar and commentary excitement patterns
@@ -16,17 +17,18 @@ Automatic Clip Generation: Optionally saves video clips of detected goals
 Duplicate Filtering: Intelligently removes multiple detections of the same goal
 GPU Acceleration: Supports CUDA for faster processing when available
 Customizable Thresholds: Tune detection sensitivity to match your video quality
+```
 
 📋 Requirements
-System Requirements
-
+```
 Python 3.8 or higher
 ffmpeg (for audio extraction and clip generation)
 4GB+ RAM recommended
 GPU with CUDA support (optional, for faster processing)
+```
 
 Python Dependencies
-
+```
 opencv-python
 torch
 torchvision
@@ -35,6 +37,7 @@ librosa
 soundfile
 scikit-learn
 scipy
+```
 
 🚀 Installation
 Step 1: Install ffmpeg
@@ -124,51 +127,68 @@ Each detected goal returns a dictionary with:
 ⚙️ Configuration
 
 Detection Parameters
-ParameterDefaultDescriptionscene_threshold30.0Higher values = less sensitive to visual changesaudio_threshold0.7Higher values = less sensitive to audio peaksconfidence_threshold0.6Minimum confidence to report a goal (0.0-1.0)
+```
+scene_threshold -> Higher values = less sensitive to visual changes
+audio_threshold -> Higher values = less sensitive to audio peaksconfidence_threshold0.6Minimum confidence to report a goal (0.0-1.0)
+```
 
 Tuning Tips
+```
 Too many false positives? Increase confidence_threshold to 0.7-0.8
 Missing goals? Lower scene_threshold to 20.0 and confidence_threshold to 0.4
 Poor audio quality? Rely more on visual: lower scene_threshold to 25.0
 Broadcast with minimal replays? Lower confidence_threshold and adjust window in code
+```
 
 🔧 How It Works
+```
 Audio Extraction: Extracts audio track from video using ffmpeg
 Scene Analysis: Processes video frames to detect significant visual changes
 Audio Analysis: Identifies peaks in audio energy indicating crowd reactions
 Signal Correlation: Matches audio and visual signals within a 3-second window
 Confidence Scoring: Combines signals (40% visual, 60% audio) for final score
 Duplicate Removal: Filters multiple detections within 10-second windows
+```
 
 📊 Performance
+```
 Processing speed: ~30-60 FPS on CPU, ~100-200 FPS on GPU
 Typical accuracy: 80-90% goal detection rate
 False positive rate: ~5-15% (tunable with thresholds)
+```
 
 📝 License
+```
 This project does not include a license. You may clone and run the code locally but you may NOT
 use it for commercial use of any kind.
+```
 
 🙏 Acknowledgments
-
+```
 PyTorch team for ResNet50 models
 librosa for audio analysis capabilities
 OpenCV for video processing tools
+```
 
 📧 Support
+```
 For issues, questions, or suggestions:
 
 Open an issue on GitHub
 Email: brandonjabr@gmail.com
+```
 
 🗺️ Planned Features
-
+```
  Add support for live stream processing
  Implement player jersey detection
  Add team color recognition
  Create web interface for easy usage
  Support for highlight reel generation
  Multi-language commentary detection
+```
 
 
 Note: This library works best with broadcast-quality soccer videos that include audio. Detection accuracy may vary based on video quality, camera angles, and broadcast style.
+
+Copyright Brandon Jabr (2025)
