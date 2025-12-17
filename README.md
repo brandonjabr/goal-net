@@ -1,4 +1,4 @@
-*GoalNet: Automatic Soccer Goal Detection and Highlight Generation* 
+**GoalNet: Automatic Soccer Goal Detection and Highlight Generation**
 
 A Python library for automatically detecting goals in soccer match videos and generating highlight clips, using computer vision and audio analysis with open-source machine learning libraries.
 
