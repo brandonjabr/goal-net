@@ -3,9 +3,9 @@
 A Python library for automatically detecting goals in soccer match videos and generating highlight clips, using computer vision and audio analysis with open-source machine learning libraries.
 
 🎯 Overview
-```
+
 This library analyzes soccer game videos (MP4 format) and automatically identifies when goals are scored by detecting visual cues (scene changes, replays) and audio signals (crowd reactions, commentary excitement). It combines multiple detection signals to provide accurate timestamps and confidence scores for each goal.
-```
+
 
 ✨ Key Features
 ```
